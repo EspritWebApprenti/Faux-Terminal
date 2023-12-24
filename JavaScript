@@ -1,0 +1,51 @@
+document.addEventListener('DOMContentLoaded', function() {
+    var boxTexte = document.querySelector('.boxtexte');
+    var texteAajouterTerminal = document.querySelector('.texte_ajouter');
+    var anotherBox = document.querySelector('.anotherbox');
+    var blue = document.querySelector('.blue');
+    var anotherboxbox = document.querySelector('.anotherbox_box');
+
+    var texteAajouter = " Yeahhh ";
+    var texteAajouterAnotherBox = " class";
+    var texteAajouterBlue = '="blue"';
+    
+    setTimeout(function() {
+        ajouterTexteProgressivement(boxTexte, texteAajouter, 'textbox')
+      }, 2000);
+
+      setTimeout(function() {
+        ajouterTexteProgressivement(texteAajouterTerminal, texteAajouter, 'textterminal')
+      }, 2000);
+
+      setTimeout(function() {
+        ajouterTexteProgressivement(anotherBox, texteAajouterAnotherBox, 'classes')
+      }, 4000);
+
+      setTimeout(function() {
+        ajouterTexteProgressivement(blue, texteAajouterBlue, 'contclasses')
+      }, 6000);
+
+      setTimeout(function() {
+        anotherboxbox.style.color = '#00ddff';
+      }, 6750);
+
+
+    
+    function ajouterTexteProgressivement(element, texte, classNouv) {
+        var index = 0;
+        var vitesseEcriture = 150;
+
+        function ajouterCaractere() {
+            element.textContent += texte.charAt(index);
+            index++;
+
+            if (index < texte.length) {
+                setTimeout(ajouterCaractere, vitesseEcriture);
+            } else {
+                element.classList.add(classNouv)
+            }
+        }
+
+        ajouterCaractere()
+    }
+});
